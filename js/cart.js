@@ -43,6 +43,20 @@
 				item.checked = !item.checked;
 			}
 			this.calcTotalPrice();
+			// 全选监听
+			var _this = this;
+			var checkedSize = 0;
+			this.productList.forEach(function(item, index){
+				if(item.checked){
+					checkedSize ++;
+				}
+				if(checkedSize === _this.productList.length){
+					_this.checkAllFlag = true;
+
+				}else{
+					_this.checkAllFlag = false;
+				}
+			});
 		},
 		checkAll:function(flag){
 			this.checkAllFlag = flag;
